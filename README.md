@@ -20,20 +20,20 @@ Adım adım anlatıyorum. Hiç bi aşamada bi eksiğiniz olmadığından emin ol
 * Yeni bi klasör açalım (Adı fark etmez). İndirdiğimiz tüm dosyaları buraya atalım.
 * Repository'deki registrationToGoogle.py dosyasını indirelim.
 * Öncelikle registration sayfamıza girip programımızın sayfasını bilgisayarımıza kaydediyoruz. Sayfanın sadece .htm dosyası önemli. Diğer dosyaları çöpe atabiliriz. İndirilen dosyanın adını registrationPage.htm şeklinde değiştirelim.
-saveProgramSS image/png
+![alt tag]("http://i66.tinypic.com/2h2kpxf.jpg")
 * Şimdi Google'dan onun serverlarına bağlanabilmemiz için bi anahtar almamız lazım.
 - https://console.developers.google.com/ bu siteye giriyoruz.
 - Buradan yeni bir proje açıyoruz. Proje adı herhangi bi şey olabilir. Hiç önemli değil.
-newProjectSS image/png
+![alt tag]("http://i64.tinypic.com/s5blfd.png")
 - Projenin oluşturulmasını beklerken çayımızdan bir yudum alıyoruz.
 - Sonra bulduğumuz ilk arama kısmına Calendar yazıyoruz. Karşımıza çıkan ilk "Google Calendar API" linkine tıklıyoruz.
 - Bu düğmeden API kullanımını aktive ediyoruz.
-enableAPISS image/png
+![alt tag]("http://i67.tinypic.com/23kc80k.png")
 - Güzel. Şimdi anahtarları alsak fena olmaz. Soldaki menüde "Credentials"ı seçiyoruz.
 - Burada yukarıdaki sekmelerden "OAuth consent screen"'e basıp gelen ekranda "Product name shown to users" kısmını herhangi bir şeyle dolduralım. (Sonradan anahtar oluştururken bunu istiyor.)
 - Şimdi bir önceki sekmeye("Credentials") geri dönüp "Create credentials"a basalım.
 - Açılan menüde "OAuth Client ID" seçelim. Application type'ımız "Other". Other'ı seçip "Create"e basalım.
-createCredentialSS image/png
+![alt tag]("http://i66.tinypic.com/xc2o3r.png")
 - Gelen pencereyi "OK" deyip kapatalım.
 - Oluşturduğumuz anahtara tıklayıp yukarıdaki "Download JSON" düğmesine tıklayalım. Bu bizim uygulamamızın Google ile olan kapısının anahtar dosyası. Önemli bi dosya yani kendi dosyamı paylaşmamamın bi nedeni var. Sizin de paylaşmamanızı tavsiye ediyorum.
 - Bu dosyayı script ile aynı klasöre koyup adını "client_secret.json" diye değiştiriyoruz.
