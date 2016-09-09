@@ -9,7 +9,7 @@ Son ikisini yüklemek için bi install script ekledim. Onun çalışması için 
 
 İşletim sisteminiz python 2.7 çalıştırmak için command line'a "python2" yazılmasını gerektiriyorsa (benimki gibi) registrationToGoogle.py dosyasının ilk satırını şununla değiştirebilirsiniz.
 
-#!/usr/bin/env python2
+ #!/usr/bin/env python2
 
 "python2"yi işletim sisteminizin istediği kelime ile değiştirebilirsiniz.
 
