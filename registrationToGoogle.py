@@ -8,8 +8,8 @@ from oauth2client import client
 from oauth2client import tools
 from oauth2client import file
 
-import datetime, os, httplib2
-from datetime import timedelta
+import os, httplib2
+from datetime import datetime, timedelta
 
 SCOPES = 'https://www.googleapis.com/auth/calendar'
 CLIENT_SECRET_FILE = 'client_secret.json'
@@ -17,39 +17,15 @@ APPLICATION_NAME = 'BOUN Registration to Calendar'
 
 SCHOOL_END_DATE = "20170120"
 
-slots = [
-    datetime.datetime.strptime("19 09 2016 09:00:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 10:00:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 11:00:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 12:00:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 13:00:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 14:00:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 15:00:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 16:00:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 17:00:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 18:00:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 19:00:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 20:00:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 21:00:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 22:00:00", "%d %m %Y %H:%M:%S")
-]
+slots = []
+slotEndTimes = []
+slot_date = datetime.strptime("19 09 2016 09:00:00", "%d %m %Y %H:%M:%S")
+slot_end_date = datetime.strptime("19 09 2016 09:50:00", "%d %m %Y %H:%M:%S")
 
-slotEndTimes = [
-    datetime.datetime.strptime("19 09 2016 09:50:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 10:50:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 11:50:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 12:50:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 13:50:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 14:50:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 15:50:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 16:50:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 17:50:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 18:50:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 19:50:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 20:50:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 21:50:00", "%d %m %Y %H:%M:%S"),
-    datetime.datetime.strptime("19 09 2016 22:50:00", "%d %m %Y %H:%M:%S")
-]
+for i in range(0, 14):
+    extended_slot_date = slot_date + timedelta(hours = i)
+    slots.append(extended_slot_date)
+    slotEndTimes.append(extended_slot_date + timedelta(minutes = 50))
 
 try:
     import argparse
