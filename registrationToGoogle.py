@@ -2,7 +2,6 @@
 
 from bs4 import BeautifulSoup
 from googleapiclient.discovery import build
-from googleapiclient.http import BatchHttpRequest
 import oauth2client
 from oauth2client import client
 from oauth2client import tools
