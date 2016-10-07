@@ -6,6 +6,7 @@ import oauth2client
 from oauth2client import client
 from oauth2client import tools
 from oauth2client import file
+from remote import registrationRepository
 
 import os, httplib2
 from datetime import datetime, timedelta
@@ -81,7 +82,6 @@ def get_credentials():
         print('Storing credentials to ' + credential_path)
     return credentials
 
-
 def createCalendar(service):
     """
     Creates a calendar on Google Calendar.
@@ -95,8 +95,6 @@ def createCalendar(service):
     creationResult = service.calendars().insert(fields="id", body=calendarInfo).execute()
     calendarId = creationResult.get("id")
     return calendarId
-
-
 
 def fillCalendar(cId, service, rows):
 
@@ -127,12 +125,17 @@ def fillCalendar(cId, service, rows):
                 }
                 service.events().insert(calendarId=cId, body=eventDetails).execute()
                 print "Entry processed : " + entry["name"]
-    
 
-regFile = open("registrationPage.htm", "r")
-regPage = regFile.read()
+user_id = raw_input("Enter your student id : ")
+password = raw_input("Enter your password : ")
 
-soup = BeautifulSoup(regPage, "html.parser")
+registration_repo = registrationRepository.RegistrationRepository(user_id, password)
+reg_page = registration_repo.get_reg_page()
+
+#regFile = open("registrationPage.htm", "r")
+#regPage = regFile.read()
+
+soup = BeautifulSoup(reg_page, "html.parser")
 
 tables = soup.find_all("table")
 
