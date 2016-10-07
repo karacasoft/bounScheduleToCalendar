@@ -51,7 +51,7 @@ def parseColumns(row):
                 }
                 entries.append(lesson)
             #print str(i) + ". Slot : " + col.contents[0].strip() + " at " + col.contents[1].get_text()
-        i = i + 1
+        i += 1
     return entries
 
 def get_credentials():
@@ -100,7 +100,6 @@ def createCalendar(service):
 
 
 def fillCalendar(cId, service, rows):
-    batch = service.new_batch_http_request()
 
     for i in xrange(1, len(rows)):
         row = rows[i]
@@ -128,7 +127,7 @@ def fillCalendar(cId, service, rows):
                     ]
                 }
                 service.events().insert(calendarId=cId, body=eventDetails).execute()
-                print "Entry processed"
+                print "Entry processed : " + entry["name"]
     
 
 regFile = open("registrationPage.htm", "r")
