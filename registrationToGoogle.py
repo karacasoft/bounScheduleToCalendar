@@ -2,11 +2,11 @@
 
 from bs4 import BeautifulSoup
 from googleapiclient.discovery import build
-from googleapiclient.http import BatchHttpRequest
 import oauth2client
 from oauth2client import client
 from oauth2client import tools
 from oauth2client import file
+from remote import registrationRepository
 
 import os, httplib2
 from datetime import datetime, timedelta
@@ -51,7 +51,7 @@ def parseColumns(row):
                 }
                 entries.append(lesson)
             #print str(i) + ". Slot : " + col.contents[0].strip() + " at " + col.contents[1].get_text()
-        i = i + 1
+        i += 1
     return entries
 
 def get_credentials():
@@ -82,7 +82,6 @@ def get_credentials():
         print('Storing credentials to ' + credential_path)
     return credentials
 
-
 def createCalendar(service):
     """
     Creates a calendar on Google Calendar.
@@ -97,10 +96,7 @@ def createCalendar(service):
     calendarId = creationResult.get("id")
     return calendarId
 
-
-
 def fillCalendar(cId, service, rows):
-    batch = service.new_batch_http_request()
 
     for i in xrange(1, len(rows)):
         row = rows[i]
@@ -128,13 +124,18 @@ def fillCalendar(cId, service, rows):
                     ]
                 }
                 service.events().insert(calendarId=cId, body=eventDetails).execute()
-                print "Entry processed"
-    
+                print "Entry processed : " + entry["name"]
 
-regFile = open("registrationPage.htm", "r")
-regPage = regFile.read()
+user_id = raw_input("Enter your student id : ")
+password = raw_input("Enter your password : ")
 
-soup = BeautifulSoup(regPage, "html.parser")
+registration_repo = registrationRepository.RegistrationRepository(user_id, password)
+reg_page = registration_repo.get_reg_page()
+
+#regFile = open("registrationPage.htm", "r")
+#regPage = regFile.read()
+
+soup = BeautifulSoup(reg_page, "html.parser")
 
 tables = soup.find_all("table")
 
