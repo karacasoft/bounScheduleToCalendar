@@ -19,7 +19,7 @@ Adım adım anlatıyorum. Hiç bi aşamada bi eksiğiniz olmadığından emin ol
 
 * Yeni bi klasör açalım (Adı fark etmez). İndirdiğimiz tüm dosyaları buraya atalım.
 * Repository'deki registrationToGoogle.py dosyasını indirelim.
-* Öncelikle registration sayfamıza girip programımızın sayfasını bilgisayarımıza kaydediyoruz. Sayfanın sadece .htm dosyası önemli. Diğer dosyaları çöpe atabiliriz. İndirilen dosyanın adını registrationPage.htm şeklinde değiştirelim.
+* ~~Öncelikle registration sayfamıza girip programımızın sayfasını bilgisayarımıza kaydediyoruz. Sayfanın sadece .htm dosyası önemli. Diğer dosyaları çöpe atabiliriz. İndirilen dosyanın adını registrationPage.htm şeklinde değiştirelim.~~ Burası artık gereksiz, alttaki işlemleri hallettikten sonra programa girip kullanıcı adı ve parola yazmak sayfanın alınması için yeterli.
 ![img](http://i66.tinypic.com/2h2kpxf.jpg)
 * Şimdi Google'dan onun serverlarına bağlanabilmemiz için bi anahtar almamız lazım.
 - https://console.developers.google.com/ bu siteye giriyoruz.
