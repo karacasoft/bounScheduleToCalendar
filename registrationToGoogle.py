@@ -15,7 +15,7 @@ SCOPES = 'https://www.googleapis.com/auth/calendar'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'BOUN Registration to Calendar'
 
-SCHOOL_END_DATE = "20170120"
+SCHOOL_END_DATE = "20170601"
 
 slots = []
 slotEndTimes = []
