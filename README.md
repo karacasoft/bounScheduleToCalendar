@@ -4,6 +4,9 @@
 * Python 2.7 (3 desteklenmiyor.(sanırım))
 * BeautifulSoup4
 * Google API Python Client
+* requests
+
+Not: OSX Sierra'da gereksinimleri easy_install ile yüklediğimizde çalışıyor.
 
 Son ikisini yüklemek için bi install script ekledim. Onun çalışması için "pip" gerekiyor. O var mı diye kontrol etmek için "pip -V" diye yazın command line'a. Çalışmazsa kendi linux dağıtımınız için pip yüklemeyi araştırın.
 
